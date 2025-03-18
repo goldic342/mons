@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@font-face {
+  font-family: Angst;
+  src:
+    url(../assets/fonts/angst/AngstVF.ttf) format("truetype"),
+    url(../assets/fonts/angst/AngstVF.woff2) format("woff2");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Black.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-BlackItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-ExtraBold.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-ExtraBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-ExtraBoldItalic.otf")
+      format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-BoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-SemiBoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Medium.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-MediumItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-RegularItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Light.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-ExtraLight.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-ExtraLightItalic.woff2")
+      format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-ExtraLightItalic.otf")
+      format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-Thin.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MacPaw Fixel;
+  src:
+    url("../assets/fonts/Fixel/FixelText-ThinItalic.woff2") format("woff2"),
+    url("../assets/fonts/Fixel/FixelText-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
