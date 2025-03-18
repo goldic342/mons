@@ -2,4 +2,7 @@
   --font-sans: "MacPaw Fixel", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: Angst, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-second: #9e9e9e;
+  --color-link: #ababab;
 }
