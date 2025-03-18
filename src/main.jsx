@@ -1,10 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 import "./styles/index.css";
-import App from "./components/App";
+import { router } from "./routes/routes.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <RouterProvider
+      router={router}
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }} // remove warnings
+    ></RouterProvider>
   </StrictMode>,
 );
