@@ -1,0 +1,1 @@
+export const MAIN_SCROLL_DURATION = 2000;
