@@ -28,12 +28,22 @@ export const ScrollProvider = ({
   children,
 }) => {
   const [sectionIndex, setSectionIndex] = useState(0);
-  const isScrollingRef = useRef(false);
   const [totalSections, setTotalSections] = useState(0);
+  // For safety when using multiple instaces of Scroller
+  const [scrollerId, setScrollerId] = useState("");
+
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
-    setTotalSections(document.querySelectorAll('[id^="section-"]').length);
-  }, [children]);
+    setScrollerId((Math.random() * 100 + Math.random()).toString(16));
+  }, []);
+
+  useEffect(() => {
+    if (!scrollerId) return;
+    setTotalSections(
+      document.querySelectorAll(`[id^="section-${scrollerId}-"]`).length,
+    );
+  }, [children, scrollerId]);
 
   const nextSection = () => {
     setSectionIndex((prev) => Math.min(prev + 1, totalSections - 1));
@@ -76,7 +86,7 @@ export const ScrollProvider = ({
         className={`${hideOverflow && "overflow-hidden"} ${className}`}
         onWheel={handleWheel}
       >
-        {children(sectionIndex)}
+        {children(sectionIndex, scrollerId)}
       </div>
     </ScrollContext.Provider>
   );
