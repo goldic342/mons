@@ -1,4 +1,4 @@
-import NoiseImg from "../assets/noise.png";
+import NoiseImg from "../../assets/noise.png";
 
 const Noise = ({ opacity = 1 }) => {
   return (

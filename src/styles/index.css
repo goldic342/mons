@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Black.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Black.otf") format("opentype");
@@ -19,7 +19,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-BlackItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-BlackItalic.otf") format("opentype");
@@ -28,7 +28,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-ExtraBold.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-ExtraBold.otf") format("opentype");
@@ -37,7 +37,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-ExtraBoldItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-ExtraBoldItalic.otf")
@@ -47,7 +47,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Bold.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Bold.otf") format("opentype");
@@ -56,7 +56,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-BoldItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-BoldItalic.otf") format("opentype");
@@ -65,7 +65,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-SemiBold.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-SemiBold.otf") format("opentype");
@@ -74,7 +74,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-SemiBoldItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-SemiBoldItalic.otf") format("opentype");
@@ -83,7 +83,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Medium.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Medium.otf") format("opentype");
@@ -92,7 +92,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-MediumItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-MediumItalic.otf") format("opentype");
@@ -101,7 +101,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Regular.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Regular.otf") format("opentype");
@@ -110,7 +110,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-RegularItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-RegularItalic.otf") format("opentype");
@@ -119,7 +119,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Light.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Light.otf") format("opentype");
@@ -128,7 +128,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-LightItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-LightItalic.otf") format("opentype");
@@ -137,7 +137,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-ExtraLight.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-ExtraLight.otf") format("opentype");
@@ -146,7 +146,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-ExtraLightItalic.woff2")
       format("woff2"),
@@ -157,7 +157,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-Thin.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-Thin.otf") format("opentype");
@@ -166,7 +166,7 @@
 }
 
 @font-face {
-  font-family: MacPaw Fixel;
+  font-family: "MacPaw Fixel";
   src:
     url("../assets/fonts/Fixel/FixelText-ThinItalic.woff2") format("woff2"),
     url("../assets/fonts/Fixel/FixelText-ThinItalic.otf") format("opentype");
