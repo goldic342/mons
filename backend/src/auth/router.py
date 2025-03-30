@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Request, HTTPException, Depends
-from src.auth import dependencies
 from src.auth.service import (
     get_user_by_username,
+    get_all_users,
+    delete_user,
     verify_password,
     create_user,
 )
@@ -28,9 +29,7 @@ def logout(req: Request):
 
 
 @router.post("/register", dependencies=[Depends(get_current_user)])
-def register(
-    form: RegisterRequest,
-):
+def register(form: RegisterRequest):
     try:
         create_user(form.username, form.password)
     except ValueError as e:
@@ -41,3 +40,17 @@ def register(
 @router.get("/check")
 def check(user_id: int = Depends(get_current_user)):
     return {"ok": True if user_id else False}
+
+
+@router.get("/users", dependencies=[Depends(get_current_user)])
+def list_users():
+    return get_all_users()
+
+
+@router.delete("/users/{username}", dependencies=[Depends(get_current_user)])
+def remove_user(username: str):
+    try:
+        delete_user(username)
+        return {"message": f"User '{username}' deleted"}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
