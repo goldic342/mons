@@ -7,7 +7,7 @@ const ContentEdit = () => (
       <TextInput source="key" />
       <TextInput source="section" />
       <TextInput source="name" />
-      <TextInput source="value" />
+      <TextInput source="value" multiline />
     </SimpleForm>
   </Edit>
 );
