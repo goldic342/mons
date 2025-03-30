@@ -28,10 +28,13 @@ def init_db():
         CREATE TABLE IF NOT EXISTS employees (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
-            position TEXT,
-            description TEXT,
-            photo_url TEXT
-        )
-    """)
+            position TEXT NOT NULL,
+            position_full TEXT NOT NULL,
+            industry TEXT NOT NULL,
+            photo_url TEXT NOT NULL,
+            experience TEXT,
+            professional_competention TEXT
+    );
+        """)
 
     conn.commit()
