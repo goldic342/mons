@@ -52,4 +52,28 @@ def init_db():
         );
     """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS projects (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL, 
+            tags TEXT NOT NULL,
+            type TEXT NOT NULL,
+            reading_time INTEGER NOT NULL,
+            thumbnail_url TEXT NOT NULL,
+            calls_section TEXT NOT NULL,
+            analyzis_section TEXT NOT NULL,
+            values_section TEXT NOT NULL,
+            mission_section TEXT NOT NULL,
+            distribution_section TEXT NOT NULL
+        );
+    """)
+
+    cursor.execute(""" 
+        CREATE TABLE IF NOT EXISTS project_contents (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            project_id INTEGER NOT NULL,
+            content_url TEXT NOT NULL,
+            FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+        );
+    """)
     conn.commit()

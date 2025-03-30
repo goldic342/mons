@@ -1,22 +1,7 @@
-import os
-from uuid import uuid4
-from src.config import settings
 from src.database import conn
+from src.utils import save_file
 from fastapi import UploadFile
 from src.employees.utils import parse_text_list
-
-SAVE_DIR = "/media/employees"
-os.makedirs(f".{SAVE_DIR}", exist_ok=True)
-
-
-def save_photo(file: UploadFile) -> str:
-    ext = os.path.splitext(file.filename)[1]
-    filename = f"{uuid4().hex}{ext}"
-    path = os.path.join(SAVE_DIR, filename)
-
-    with open(f".{path}", "wb") as f:
-        f.write(file.file.read())
-    return f"{settings.BACKEND_URL}{path}"
 
 
 def create_employee(
@@ -28,7 +13,7 @@ def create_employee(
     experience_text: str,
     competention_text: str,
 ):
-    photo_url = save_photo(photo)
+    photo_url = save_file("employees", photo)
     experience = "\n".join(parse_text_list(experience_text))
     competention = "\n".join(parse_text_list(competention_text))
 
@@ -94,7 +79,7 @@ def update_employee(
             values.append(value)
 
     if photo:
-        photo_url = save_photo(photo)
+        photo_url = save_file("employees", photo)
         fields.append("photo_url = ?")
         values.append(photo_url)
 
