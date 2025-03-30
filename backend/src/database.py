@@ -16,6 +16,15 @@ def init_db():
     """)
 
     cursor.execute("""
+        CREATE TABLE IF NOT EXISTS content(
+            key TEXT PRIMARY KEY,
+            section TEXT NOT NULL,
+            name TEXT NOT NULL,
+            value TEXT NOT NULL
+        )
+    """)
+
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS employees (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,

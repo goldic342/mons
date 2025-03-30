@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 from src.database import init_db
 from src.auth.router import router as auth_router
+from src.content.router import router as content_router
 from src.auth.service import get_user_by_username, create_user
 
 app = FastAPI()
@@ -23,13 +24,13 @@ def on_startup():
 
 
 def create_default_admin():
-    """Создать пользователя admin:admin, если его нет."""
     user = get_user_by_username("admin")
     if not user:
-        create_user("admin", "admin")  # пароль "admin"
+        create_user("admin", "admin")
         print("Created default admin user: admin/admin")
     else:
         print("Admin user already exists.")
 
 
 app.include_router(auth_router)
+app.include_router(content_router)
