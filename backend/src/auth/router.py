@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Request, HTTPException, Depends
+from src.auth import dependencies
 from src.auth.service import (
     get_user_by_username,
     verify_password,
@@ -17,22 +18,26 @@ def login(req: Request, form: LoginRequest):
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
     req.session["user_id"] = user["id"]
-    return {"message": f"Hello {user['username']}, you're logged in."}
+    return {"ok": True}
 
 
 @router.post("/logout")
 def logout(req: Request):
     req.session.pop("user_id", None)
-    return {"message": "Logged out"}
+    return {"ok": True}
 
 
-@router.post("/register")
+@router.post("/register", dependencies=[Depends(get_current_user)])
 def register(
     form: RegisterRequest,
-    user_id: int = Depends(get_current_user),
 ):
     try:
         create_user(form.username, form.password)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     return {"message": f"User '{form.username}' successfully created"}
+
+
+@router.get("/check")
+def check(user_id: int = Depends(get_current_user)):
+    return {"ok": True if user_id else False}
