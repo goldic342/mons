@@ -1,5 +1,4 @@
 import { fetchUtils } from "react-admin";
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 const httpClient = (url, options = {}) => {
@@ -17,6 +16,30 @@ const resourceMap = {
   users: "auth/users",
 };
 
+// 🔁 Reusable helper for body/headers logic
+const buildRequestBodyAndHeaders = (data) => {
+  const hasFile = Object.values(data).some(
+    (value) => value && typeof value === "object" && value.rawFile,
+  );
+
+  if (hasFile) {
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      if (value && typeof value === "object" && value.rawFile) {
+        formData.append(key, value.rawFile);
+      } else {
+        formData.append(key, value);
+      }
+    });
+    return { body: formData, headers: undefined };
+  }
+
+  return {
+    body: JSON.stringify(data),
+    headers: new Headers({ "Content-Type": "application/json" }),
+  };
+};
+
 export const dataProvider = {
   getList: (resource) =>
     httpClient(`${API_URL}/${resourceMap[resource]}`).then(({ json }) => ({
@@ -26,24 +49,26 @@ export const dataProvider = {
 
   getOne: (resource, { id }) =>
     httpClient(`${API_URL}/${resourceMap[resource]}/${id}`).then(
-      ({ json }) => ({
-        data: json,
-      }),
+      ({ json }) => ({ data: json }),
     ),
 
-  create: (resource, { data }) =>
-    httpClient(`${API_URL}/${resourceMap[resource]}`, {
+  create: (resource, { data }) => {
+    const { body, headers } = buildRequestBodyAndHeaders(data);
+    return httpClient(`${API_URL}/${resourceMap[resource]}`, {
       method: "POST",
-      body: JSON.stringify(data),
-      headers: new Headers({ "Content-Type": "application/json" }),
-    }).then(({ json }) => ({ data: json })),
+      body,
+      headers,
+    }).then(({ json }) => ({ data: json }));
+  },
 
-  update: (resource, { id, data }) =>
-    httpClient(`${API_URL}/${resourceMap[resource]}/${id}`, {
+  update: (resource, { id, data }) => {
+    const { body, headers } = buildRequestBodyAndHeaders(data);
+    return httpClient(`${API_URL}/${resourceMap[resource]}/${id}`, {
       method: "PUT",
-      body: JSON.stringify(data),
-      headers: new Headers({ "Content-Type": "application/json" }),
-    }).then(({ json }) => ({ data: json })),
+      body,
+      headers,
+    }).then(({ json }) => ({ data: json }));
+  },
 
   delete: (resource, { id }) =>
     httpClient(`${API_URL}/${resourceMap[resource]}/${id}`, {

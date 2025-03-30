@@ -17,7 +17,7 @@ def create_employee(
     competention: str = Form(...),
     photo: UploadFile = File(...),
 ):
-    service.create_employee(
+    id = service.create_employee(
         name=name,
         position=position,
         position_full=position_full,
@@ -26,7 +26,7 @@ def create_employee(
         experience_text=experience,
         competention_text=competention,
     )
-    return {"message": f"Employee '{name}' created"}
+    return {"id": id}
 
 
 @router.get("/")
@@ -70,7 +70,7 @@ def update_employee(
         photo=photo,
     )
 
-    return {"message": f"Employee '{employee_id}' updated"}
+    return {"id": employee_id}
 
 
 @router.delete("/{employee_id}")

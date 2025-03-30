@@ -1,4 +1,4 @@
-import { Admin, EditGuesser, ListGuesser, Resource } from "react-admin";
+import { Admin, EditGuesser, Resource } from "react-admin";
 import Layout from "./components/Layout";
 
 import {
@@ -9,6 +9,12 @@ import {
 import { UserCreate, UserList } from "./resources/Users";
 import { ContentEdit, ContentList } from "./resources/Contents";
 import { ContactList } from "./resources/Contacts";
+import {
+  EmployeeList,
+  EmployeeShow,
+  EmployeeEdit,
+  EmployeeCreate,
+} from "./resources/Employees.jsx";
 import { dataProvider } from "./api/dataProvider";
 import { authProvider } from "./api/authProvider";
 
@@ -18,6 +24,13 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
   >
+    <Resource
+      name="employees"
+      list={EmployeeList}
+      show={EmployeeShow}
+      edit={EmployeeEdit}
+      create={EmployeeCreate}
+    />
     <Resource
       name="abilities"
       list={AbilityList}

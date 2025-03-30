@@ -31,6 +31,8 @@ def create_employee(
     )
     conn.commit()
 
+    return c.lastrowid
+
 
 def get_employee(id: int) -> dict | None:
     c = conn.cursor()
