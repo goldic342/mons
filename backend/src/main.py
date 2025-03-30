@@ -8,6 +8,7 @@ from src.auth.router import router as auth_router
 from src.employees.router import router as employee_router
 from src.contacts.router import router as contacts_router
 from src.content.router import router as content_router
+from src.abilities.router import router as abilities_router
 from src.auth.service import get_user_by_username, create_user
 from dotenv import load_dotenv
 from src.config import settings
@@ -48,3 +49,4 @@ app.include_router(auth_router)
 app.include_router(content_router)
 app.include_router(employee_router)
 app.include_router(contacts_router)
+app.include_router(abilities_router)

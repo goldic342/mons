@@ -43,4 +43,13 @@ def init_db():
             contact_value TEXT NOT NULL
         );
     """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS abilities (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL, 
+            description TEXT NOT NULL
+        );
+    """)
+
     conn.commit()
