@@ -35,6 +35,12 @@ def init_db():
             experience TEXT,
             professional_competention TEXT
     );
-        """)
+    """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS contacts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            contact_value TEXT NOT NULL
+        );
+    """)
     conn.commit()

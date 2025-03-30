@@ -7,6 +7,9 @@ class Settings(BaseSettings):
     ADMIN_LOGIN: str
     ADMIN_PASSWORD: str
     BACKEND_URL: str
+    BOT_TOKEN: str
+    CHAT_ID: str
+    CONTACT_RATELIMIT: int = 1800
 
     model_config = SettingsConfigDict(
         case_sensitive=True,
