@@ -1,10 +1,14 @@
 from fastapi import FastAPI
+from os import getenv
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 from src.database import init_db
 from src.auth.router import router as auth_router
 from src.content.router import router as content_router
 from src.auth.service import get_user_by_username, create_user
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -14,7 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.add_middleware(SessionMiddleware, secret_key="SUPER_SECRET_KEY")
+app.add_middleware(SessionMiddleware, secret_key=getenv("SESSION_KEY") or "KEY")
 
 
 @app.on_event("startup")
