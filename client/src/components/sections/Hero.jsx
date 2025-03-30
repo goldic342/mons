@@ -8,7 +8,7 @@ const Hero = () => {
   const [startDelay, setStartDelay] = useState(-1);
 
   return (
-    <div className=" w-full h-full bg-brand flex flex-col justify-center items-center gap-y-43.5 pt-(--header-height)">
+    <div className="w-full h-full bg-brand flex flex-col justify-center items-center gap-y-43.5 pt-(--header-height)">
       <div className="flex flex-col justify-center gap-y-9 ">
         <SlidingText
           text={"стратегическое\nпревосходство бренда"}
