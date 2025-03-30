@@ -1,7 +1,9 @@
-import { Admin, ListGuesser, Resource, ShowGuesser } from "react-admin";
-import { Layout } from "./Layout";
-import { dataProvider } from "./dataProvider";
-import { authProvider } from "./authProvider";
+import { Admin, Resource } from "react-admin";
+import Layout from "./components/Layout";
+import UserList from "./resources/users/UserList";
+import UserCreate from "./resources/users/UserCreate";
+import { dataProvider } from "./api/dataProvider";
+import { authProvider } from "./api/authProvider";
 
 export const App = () => (
   <Admin
@@ -9,6 +11,6 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
   >
-    <Resource name="contacts" list={ListGuesser} show={ShowGuesser} />
+    <Resource name="users" list={UserList} create={UserCreate} />
   </Admin>
 );

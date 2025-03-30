@@ -28,13 +28,13 @@ def logout(req: Request):
     return {"ok": True}
 
 
-@router.post("/register", dependencies=[Depends(get_current_user)])
+@router.post("/users", dependencies=[Depends(get_current_user)])
 def register(form: RegisterRequest):
     try:
-        create_user(form.username, form.password)
+        user_id = create_user(form.username, form.password)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    return {"message": f"User '{form.username}' successfully created"}
+    return {"id": user_id}
 
 
 @router.get("/check")
@@ -47,10 +47,10 @@ def list_users():
     return get_all_users()
 
 
-@router.delete("/users/{username}", dependencies=[Depends(get_current_user)])
-def remove_user(username: str):
+@router.delete("/users/{user_id}", dependencies=[Depends(get_current_user)])
+def remove_user(user_id: str):
     try:
-        delete_user(username)
-        return {"message": f"User '{username}' deleted"}
+        delete_user(user_id)
+        return {"message": f"User '{user_id}' deleted"}
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))

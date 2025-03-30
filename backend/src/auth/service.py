@@ -16,6 +16,7 @@ def create_user(username: str, password: str):
         (username, hashed_password),
     )
     conn.commit()
+    return c.lastrowid
 
 
 def get_user_by_username(username: str) -> dict | None:
@@ -36,12 +37,12 @@ def get_all_users() -> list[dict]:
     return [dict(row) for row in rows]
 
 
-def delete_user(username: str):
+def delete_user(user_id: str):
     c = conn.cursor()
-    c.execute("SELECT id FROM users WHERE username = ?", (username,))
+    c.execute("SELECT id FROM users WHERE id = ?", (user_id,))
     row = c.fetchone()
     if not row:
-        raise ValueError(f"User '{username}' not found")
+        raise ValueError(f"User '{user_id}' not found")
 
-    c.execute("DELETE FROM users WHERE username = ?", (username,))
+    c.execute("DELETE FROM users WHERE id = ?", (user_id,))
     conn.commit()

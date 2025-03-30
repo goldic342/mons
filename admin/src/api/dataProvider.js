@@ -14,11 +14,12 @@ const resourceMap = {
   contacts: "contacts",
   abilities: "abilities",
   projects: "projects",
+  users: "auth/users",
 };
 
 export const dataProvider = {
   getList: (resource) =>
-    httpClient(`${API_URL}/${resourceMap[resource]}/`).then(({ json }) => ({
+    httpClient(`${API_URL}/${resourceMap[resource]}`).then(({ json }) => ({
       data: json,
       total: json.length,
     })),
@@ -31,7 +32,7 @@ export const dataProvider = {
     ),
 
   create: (resource, { data }) =>
-    httpClient(`${API_URL}/${resourceMap[resource]}/`, {
+    httpClient(`${API_URL}/${resourceMap[resource]}`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({ "Content-Type": "application/json" }),
