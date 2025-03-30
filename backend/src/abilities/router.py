@@ -12,8 +12,8 @@ router = APIRouter(
 def create_ability(
     payload: AbilityCreate,
 ):
-    service.create_ability(payload.name, payload.description)
-    return {"message": f"Ability '{payload.name}' created"}
+    id = service.create_ability(payload.name, payload.description)
+    return {"id": id}
 
 
 @router.get("/")
@@ -42,7 +42,7 @@ def update_ability(
     service.update_ability(
         ability_id, name=payload.name, description=payload.description
     )
-    return {"message": f"Ability {ability_id} updated"}
+    return {"id": ability_id}
 
 
 @router.delete("/{ability_id}")

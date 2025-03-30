@@ -7,6 +7,7 @@ def create_ability(name: str, description: str):
         "INSERT INTO abilities (name, description) VALUES (?, ?)", (name, description)
     )
     conn.commit()
+    return c.lastrowid
 
 
 def get_ability(id: int) -> dict | None:

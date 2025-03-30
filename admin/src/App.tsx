@@ -1,5 +1,10 @@
-import { Admin, Resource } from "react-admin";
+import { Admin, EditGuesser, ListGuesser, Resource } from "react-admin";
 import Layout from "./components/Layout";
+
+import AbilityCreate from "./resources/abilities/AbilityCreate";
+import AbilityEdit from "./resources/abilities/AbilityEdit";
+import AbilityList from "./resources/abilities/AbilityList";
+import ContactList from "./resources/contacts/ContactList";
 import ContentList from "./resources/content/ContentList";
 import ContentEdit from "./resources/content/ContentEdit";
 import UserList from "./resources/users/UserList";
@@ -13,6 +18,13 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
   >
+    <Resource
+      name="abilities"
+      list={AbilityList}
+      edit={AbilityEdit}
+      create={AbilityCreate}
+    />
+    <Resource name="contacts" list={ContactList} />
     <Resource name="content" list={ContentList} edit={ContentEdit} />
     <Resource name="users" list={UserList} create={UserCreate} />
   </Admin>
