@@ -1,5 +1,6 @@
 import os
 from uuid import uuid4
+from src.config import settings
 from src.database import conn
 from fastapi import UploadFile
 from src.employees.utils import parse_text_list
@@ -15,7 +16,7 @@ def save_photo(file: UploadFile) -> str:
 
     with open(f".{path}", "wb") as f:
         f.write(file.file.read())
-    return f"{path}"
+    return f"{settings.BACKEND_URL}{path}"
 
 
 def create_employee(

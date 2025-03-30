@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     SESSION_KEY: str
     ADMIN_LOGIN: str
     ADMIN_PASSWORD: str
+    BACKEND_URL: str
 
     model_config = SettingsConfigDict(
         case_sensitive=True,
