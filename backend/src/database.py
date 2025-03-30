@@ -17,7 +17,8 @@ def init_db():
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS content(
-            key TEXT PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            key TEXT,
             section TEXT NOT NULL,
             name TEXT NOT NULL,
             value TEXT NOT NULL
