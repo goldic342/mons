@@ -1,6 +1,6 @@
-import { Datagrid, DeleteButton, List, TextField } from "react-admin";
+import { List, Datagrid, TextField, DeleteButton } from "react-admin";
 
-const ContactList = () => (
+export const ContactList = () => (
   <List>
     <Datagrid>
       <TextField source="id" />
@@ -9,5 +9,3 @@ const ContactList = () => (
     </Datagrid>
   </List>
 );
-
-export default ContactList;

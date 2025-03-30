@@ -1,14 +1,14 @@
 import { Admin, EditGuesser, ListGuesser, Resource } from "react-admin";
 import Layout from "./components/Layout";
 
-import AbilityCreate from "./resources/abilities/AbilityCreate";
-import AbilityEdit from "./resources/abilities/AbilityEdit";
-import AbilityList from "./resources/abilities/AbilityList";
-import ContactList from "./resources/contacts/ContactList";
-import ContentList from "./resources/content/ContentList";
-import ContentEdit from "./resources/content/ContentEdit";
-import UserList from "./resources/users/UserList";
-import UserCreate from "./resources/users/UserCreate";
+import {
+  AbilityCreate,
+  AbilityEdit,
+  AbilityList,
+} from "./resources/Abilities.jsx";
+import { UserCreate, UserList } from "./resources/Users";
+import { ContentEdit, ContentList } from "./resources/Contents";
+import { ContactList } from "./resources/Contacts";
 import { dataProvider } from "./api/dataProvider";
 import { authProvider } from "./api/authProvider";
 
