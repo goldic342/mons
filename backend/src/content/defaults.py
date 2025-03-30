@@ -45,6 +45,12 @@ DEFAULT_CONTENT = [
         "value": "давайте обсудим\nваш проект",
     },
     {
+        "key": "user_agreement_link",
+        "section": "contact",
+        "name": "Ссылка на условия обработки пероснальных данных",
+        "value": "http://example.com",
+    },
+    {
         "key": "email",
         "section": "contact",
         "name": "Имейл",
