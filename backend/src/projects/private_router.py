@@ -59,4 +59,4 @@ def delete_project_content(
     content_id: int,
 ):
     contents.delete_project_content(content_id)
-    return {"message": f"Content {content_id} deleted"}
+    return {"ok": True}
