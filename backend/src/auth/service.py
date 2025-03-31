@@ -39,6 +39,12 @@ def get_all_users() -> list[dict]:
 
 def delete_user(user_id: str):
     c = conn.cursor()
+
+    c.execute("SELECT COUNT(*) FROM users")
+    user_count = c.fetchone()[0]
+    if user_count <= 1:
+        raise TypeError("Cannot delete the last remaining user")
+
     c.execute("SELECT id FROM users WHERE id = ?", (user_id,))
     row = c.fetchone()
     if not row:

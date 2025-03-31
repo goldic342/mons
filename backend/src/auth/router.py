@@ -52,5 +52,7 @@ def remove_user(user_id: str):
     try:
         delete_user(user_id)
         return {"message": f"User '{user_id}' deleted"}
+    except TypeError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
