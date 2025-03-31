@@ -23,6 +23,14 @@ import {
 import { dataProvider } from "./api/dataProvider";
 import { authProvider } from "./api/authProvider";
 
+// Icons
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import PeopleIcon from "@mui/icons-material/People";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import ArticleIcon from "@mui/icons-material/Article";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+
 export const App = () => (
   <Admin
     layout={Layout}
@@ -34,6 +42,7 @@ export const App = () => (
       list={ProjectList}
       show={ProjectShow}
       edit={ProjectEdit}
+      icon={WorkOutlineIcon}
     />
     <Resource
       name="employees"
@@ -41,15 +50,27 @@ export const App = () => (
       show={EmployeeShow}
       edit={EmployeeEdit}
       create={EmployeeCreate}
+      icon={PeopleIcon}
     />
     <Resource
       name="abilities"
       list={AbilityList}
       edit={AbilityEdit}
       create={AbilityCreate}
+      icon={FlashOnIcon}
     />
-    <Resource name="contacts" list={ContactList} />
-    <Resource name="content" list={ContentList} edit={ContentEdit} />
-    <Resource name="users" list={UserList} create={UserCreate} />
+    <Resource name="contacts" list={ContactList} icon={ContactMailIcon} />
+    <Resource
+      name="content"
+      list={ContentList}
+      edit={ContentEdit}
+      icon={ArticleIcon}
+    />
+    <Resource
+      name="users"
+      list={UserList}
+      create={UserCreate}
+      icon={SupervisorAccountIcon}
+    />
   </Admin>
 );
