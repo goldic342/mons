@@ -1,11 +1,6 @@
-import React, {
-  useState,
-  useRef,
-  useContext,
-  createContext,
-  useEffect,
-} from "react";
+import React, { useState, useRef, createContext, useEffect } from "react";
 import { MAIN_SCROLL_DURATION } from "../constants";
+import { useCtx } from "../hooks/useCtx";
 
 const ScrollContext = createContext({
   skipToSection: () => {},
@@ -15,10 +10,7 @@ const ScrollContext = createContext({
 });
 
 export const useScroll = () => {
-  const context = useContext(ScrollContext);
-  if (!context) {
-    throw new Error("useScroll must be used within an ScrollProvider");
-  }
+  const context = useCtx(ScrollContext, "Scroll");
   return context;
 };
 

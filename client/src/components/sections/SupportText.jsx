@@ -1,5 +1,6 @@
+import { StaggerProvider } from "../../contexts/StaggerContext";
 import SlidingBox from "../ui/Slide/SlidingBox";
-import { baseSectionClass } from "../ui/uiConstants";
+import { baseSectionClass } from "../ui/uiConfig";
 
 const SupportText = () => {
   return (
@@ -9,13 +10,15 @@ const SupportText = () => {
         background: "linear-gradient(180deg, #1C173E 10%, #F7F7F7 100%)",
       }}
     >
-      <SlidingBox duration={0.4}>
-        <p>мы поддерживаем вас на всех</p>
-      </SlidingBox>
+      <StaggerProvider>
+        <SlidingBox duration={0.4}>
+          <p>мы поддерживаем вас на всех</p>
+        </SlidingBox>
 
-      <SlidingBox startDelay={0.4}>
-        <p>этапах построения бизнеса</p>
-      </SlidingBox>
+        <SlidingBox>
+          <p>этапах построения бизнеса</p>
+        </SlidingBox>
+      </StaggerProvider>
     </div>
   );
 };
