@@ -3,12 +3,15 @@ import SlidingText from "../ui/Slide/SlidingText";
 import Noise from "../ui/Noise";
 import SlidingBox from "../ui/Slide/SlidingBox";
 import { ChevronRight } from "lucide-react";
+import { baseSectionClass } from "../ui/uiConstants";
 
 const Hero = () => {
   const [startDelay, setStartDelay] = useState(-1);
 
   return (
-    <div className="w-full h-full bg-brand flex flex-col justify-center items-center gap-y-43.5 pt-(--header-height)">
+    <div
+      className={`${baseSectionClass} bg-brand gap-y-43.5 pt-(--header-height)`}
+    >
       <div className="flex flex-col justify-center gap-y-9 ">
         <SlidingText
           text={"стратегическое\nпревосходство бренда"}
