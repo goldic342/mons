@@ -7,8 +7,11 @@ const FullPageScroll = ({ children }) => {
     <ScrollProvider className="w-full h-screen">
       {(sectionIndex, scrollerId) => (
         <div
-          className={`transition-transform duration-${MAIN_SCROLL_DURATION}`}
-          style={{ transform: `translateY(-${sectionIndex * 100}vh)` }}
+          className={"transition-transform"}
+          style={{
+            transform: `translateY(-${sectionIndex * 100}vh)`,
+            transitionDuration: `${MAIN_SCROLL_DURATION}ms`,
+          }}
         >
           {React.Children.map(children, (child, idx) => (
             <div
