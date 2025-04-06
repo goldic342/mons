@@ -1,1 +1,2 @@
 export const MAIN_SCROLL_DURATION = 2000;
+export const SECTION_SCROLL_DURATION = 1200;

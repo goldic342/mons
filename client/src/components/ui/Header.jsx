@@ -1,6 +1,7 @@
 import NavLink from "./NavLink";
 import Logo from "../../assets/mons.svg";
 import { Link } from "react-router-dom";
+import TextButton from "./Buttons/TextButton";
 
 const Header = () => {
   return (
@@ -13,9 +14,7 @@ const Header = () => {
         <NavLink to="/about">о нас</NavLink>
         <NavLink to="/contacts">контакты</NavLink>
       </nav>
-      <button className="uppercase transition-colors duration-400 hover:text-link cursor-pointer">
-        связаться
-      </button>
+      <TextButton>связаться</TextButton>
     </header>
   );
 };

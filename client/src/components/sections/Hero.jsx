@@ -5,8 +5,11 @@ import SlidingText from "../ui/Slide/SlidingText";
 import { ChevronRight } from "lucide-react";
 import { baseSectionClass } from "../ui/uiConfig";
 import { StaggerProvider } from "../../contexts/StaggerContext";
+import TextButton from "../ui/Buttons/TextButton";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div
       className={`${baseSectionClass} bg-brand gap-y-43.5 pt-(--header-height)`}
@@ -24,16 +27,18 @@ const Hero = () => {
           </SlidingBox>
         </div>
         <SlidingBox duration={0.3}>
-          <button
-            className="uppercase flex gap-x-2 text-white text-xs items-center group cursor-pointer"
-            onClick={() => console.log("Clicked")} // TODO: add action
+          <TextButton
+            className={
+              "flex gap-x-2 text-white text-xs items-center group cursor-pointer"
+            }
+            onClick={() => navigate("/projects")}
           >
             узнать больше
             <ChevronRight
               size={12}
               className="transition-transform duration-300 group-hover:translate-x-2"
             />
-          </button>
+          </TextButton>
         </SlidingBox>
       </StaggerProvider>
       <Noise />

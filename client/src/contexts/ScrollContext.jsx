@@ -17,6 +17,7 @@ export const useScroll = () => {
 export const ScrollProvider = ({
   className,
   hideOverflow = true,
+  preventDefault = false,
   children,
 }) => {
   const [sectionIndex, setSectionIndex] = useState(0);
@@ -53,6 +54,11 @@ export const ScrollProvider = ({
   const handleWheel = (event) => {
     if (isScrollingRef.current) return;
 
+    if (preventDefault) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     if (event.deltaY > 0) {
       nextSection();
     } else if (event.deltaY < 0) {
@@ -75,7 +81,7 @@ export const ScrollProvider = ({
   return (
     <ScrollContext.Provider value={contextValue}>
       <div
-        className={`${hideOverflow && "overflow-hidden"} ${className}`}
+        className={`${hideOverflow ? "overflow-hidden" : ""} ${className}`}
         onWheel={handleWheel}
       >
         {children(sectionIndex, scrollerId)}

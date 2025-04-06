@@ -1,4 +1,5 @@
-import FullPageScroll from "../components/FullPageScroll";
+import FullPageScroll from "../components/scrollManagers/FullPageScroll";
+import Abilities from "../components/sections/Abilities";
 import Hero from "../components/sections/Hero";
 import SupportText from "../components/sections/SupportText";
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <FullPageScroll>
       <Hero />
       <SupportText />
+      <Abilities />
     </FullPageScroll>
   );
 };

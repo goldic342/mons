@@ -1,6 +1,6 @@
-import { ScrollProvider } from "../contexts/ScrollContext";
+import { ScrollProvider } from "../../contexts/ScrollContext";
 import React from "react";
-import { MAIN_SCROLL_DURATION } from "../constants";
+import { MAIN_SCROLL_DURATION } from "../../constants";
 
 const FullPageScroll = ({ children }) => {
   return (
@@ -14,13 +14,13 @@ const FullPageScroll = ({ children }) => {
           }}
         >
           {React.Children.map(children, (child, idx) => (
-            <div
+            <section
               key={idx}
               className={"w-full h-screen"}
               id={`section-${scrollerId}-${idx}`}
             >
               {child}
-            </div>
+            </section>
           ))}
         </div>
       )}
