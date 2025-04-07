@@ -132,7 +132,6 @@ export const ScrollProvider = ({
       totalSections,
       nextSection,
       prevSection,
-      scrollerId,
     ],
   );
 
