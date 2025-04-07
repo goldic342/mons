@@ -29,14 +29,3 @@ export const titleVariants = {
     transition: { duration: 1 },
   },
 };
-
-export const contentVariants = {
-  active: {
-    opacity: 1,
-    transition: { duration: 0.4, ease: "easeIn" },
-  },
-  inactive: {
-    opacity: 0,
-    transition: { duration: 0.3, ease: "easeIn" },
-  },
-};
