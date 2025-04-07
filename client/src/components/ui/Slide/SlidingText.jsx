@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion, useInView } from "framer-motion";
 import { useStaggeredDelay } from "../../../hooks/useStaggeredDelay";
 import { BASE_DURATION, LINE_DELAY, WORD_DELAY } from "../uiConfig";
+import { useRef } from "react";
 
 const SlidingText = ({
   text,
@@ -9,7 +9,8 @@ const SlidingText = ({
   wordDelay = WORD_DELAY,
   className = "",
 }) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   const lines = text.split("\n");
 
   const totalWords = lines.reduce(

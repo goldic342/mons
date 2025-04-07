@@ -1,10 +1,11 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion, useInView } from "framer-motion";
 import { BASE_DURATION } from "../uiConfig";
 import { useStaggeredDelay } from "../../../hooks/useStaggeredDelay";
+import { useRef } from "react";
 
 const SlidingBox = ({ children, duration = BASE_DURATION, className = "" }) => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   const delay = useStaggeredDelay({ inView, duration });
 
   return (

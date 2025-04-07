@@ -1,6 +1,5 @@
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { useStaggeredDelay } from "../../../hooks/useStaggeredDelay";
 
 const SlideReveal = ({
@@ -9,11 +8,8 @@ const SlideReveal = ({
   duration = 0.8,
   ...props
 }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
   const delay = useStaggeredDelay({ inView, duration });
 
   return (
