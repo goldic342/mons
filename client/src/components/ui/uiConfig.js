@@ -7,8 +7,13 @@ export const BASE_DURATION = 0.5;
 export const WORD_DELAY = 0.1;
 export const LINE_DELAY = 0.3;
 
-// === SectionScroll ===
+export const HEADER_COLORS_MAP = {
+  0: "white", // Hero
+  1: "white", // Support text
+  2: "black", // Abilities
+};
 
+// === SectionScroll ===
 export const titleVariants = {
   previous: {
     opacity: 0,

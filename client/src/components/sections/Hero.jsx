@@ -7,9 +7,12 @@ import { baseSectionClass } from "../ui/uiConfig";
 import { StaggerProvider } from "../../contexts/StaggerContext";
 import TextButton from "../ui/Buttons/TextButton";
 import { useNavigate } from "react-router-dom";
+import { useSetColorByIndex } from "../../hooks/useSetColorByIndex";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const color = useSetColorByIndex();
+
   return (
     <div
       className={`${baseSectionClass} bg-brand gap-y-43.5 pt-(--header-height)`}

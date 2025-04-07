@@ -2,10 +2,16 @@ import NavLink from "./NavLink";
 import Logo from "../../assets/mons.svg";
 import { Link } from "react-router-dom";
 import TextButton from "./Buttons/TextButton";
+import { useHeader } from "../../contexts/HeaderContext";
 
 const Header = () => {
+  const { color } = useHeader();
+  console.log(color);
   return (
-    <header className="w-full flex justify-between px-7 pt-14.5 uppercase text-white text-xs fixed z-10 ">
+    <header
+      style={{ color: `var(--color-${color})` }} // BUG: flickering in firefox
+      className={`w-full flex justify-between px-7 pt-14.5 uppercase text-xs fixed z-10 transition-* duration-1000`}
+    >
       <Link to={"/"}>
         <img src={Logo} alt="mons" />
       </Link>
