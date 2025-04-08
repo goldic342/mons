@@ -1,4 +1,6 @@
 import { SECTION_SCROLL_DURATION } from "../../constants";
+import LogoBlack from "../../assets/mons-black.svg";
+import Logo from "../../assets/mons.svg";
 
 export const baseSectionClass =
   "w-full h-full flex flex-col justify-center items-center";
@@ -8,9 +10,9 @@ export const WORD_DELAY = 0.1;
 export const LINE_DELAY = 0.3;
 
 export const HEADER_COLORS_MAP = {
-  0: "white", // Hero
-  1: "white", // Support text
-  2: "black", // Abilities
+  0: { color: "white", logo: Logo }, // Hero
+  1: { color: "white", logo: Logo }, // Support text
+  2: { color: "black", logo: LogoBlack }, // Abilities
 };
 
 // === SectionScroll ===

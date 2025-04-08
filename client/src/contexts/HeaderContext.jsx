@@ -10,9 +10,10 @@ export const useHeader = () => {
 
 export const HeaderProvider = ({ children }) => {
   const [color, setColor] = useState("white");
+  const [logo, setLogo] = useState(null);
 
   return (
-    <HeaderContext.Provider value={{ color, setColor }}>
+    <HeaderContext.Provider value={{ color, setColor, logo, setLogo }}>
       {children}
     </HeaderContext.Provider>
   );
