@@ -22,7 +22,7 @@ export const useScroll = () => {
 };
 
 export const ScrollProvider = ({
-  className,
+  className = "",
   hideOverflow = true,
   children,
 }) => {

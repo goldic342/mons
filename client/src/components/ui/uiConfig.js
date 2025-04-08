@@ -4,6 +4,7 @@ import Logo from "../../assets/mons.svg";
 
 export const baseSectionClass =
   "w-full h-full flex flex-col justify-center items-center";
+export const headerPadding = "pt-(--header-height)";
 
 export const BASE_DURATION = 0.5;
 export const WORD_DELAY = 0.1;

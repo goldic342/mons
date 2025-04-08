@@ -3,7 +3,7 @@ import Noise from "../ui/Noise";
 import SlidingBox from "../ui/Slide/SlidingBox";
 import SlidingText from "../ui/Slide/SlidingText";
 import { ChevronRight } from "lucide-react";
-import { baseSectionClass } from "../ui/uiConfig";
+import { baseSectionClass, headerPadding } from "../ui/uiConfig";
 import { StaggerProvider } from "../../contexts/StaggerContext";
 import TextButton from "../ui/Buttons/TextButton";
 import { useNavigate } from "react-router-dom";
@@ -14,9 +14,7 @@ const Hero = () => {
   const value = useSetHeader();
 
   return (
-    <div
-      className={`${baseSectionClass} bg-brand gap-y-43.5 pt-(--header-height)`}
-    >
+    <div className={`${baseSectionClass} bg-brand gap-y-43.5 ${headerPadding}`}>
       <StaggerProvider>
         <div className="flex flex-col justify-center gap-y-9 ">
           <SlidingText
