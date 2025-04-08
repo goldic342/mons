@@ -7,11 +7,11 @@ import { baseSectionClass } from "../ui/uiConfig";
 import { StaggerProvider } from "../../contexts/StaggerContext";
 import TextButton from "../ui/Buttons/TextButton";
 import { useNavigate } from "react-router-dom";
-import { useSetHeaderByIndex } from "../../hooks/useSetHeaderByIndex";
+import { useSetHeader } from "../../hooks/useSetHeader";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const value = useSetHeaderByIndex();
+  const value = useSetHeader();
 
   return (
     <div
