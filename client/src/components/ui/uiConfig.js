@@ -13,6 +13,8 @@ export const HEADER_COLORS_MAP = {
   0: { color: "white", logo: Logo }, // Hero
   1: { color: "white", logo: Logo }, // Support text
   2: { color: "black", logo: LogoBlack }, // Abilities
+  3: { color: "black", logo: LogoBlack },
+  4: { color: "white", logo: LogoBlack },
 };
 
 // === SectionScroll ===
