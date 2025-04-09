@@ -39,3 +39,21 @@ export const titleVariants = {
     transition: { duration: 1 },
   },
 };
+
+export const projetVariants = {
+  previous: {
+    y: -50,
+    transition: { duration: 0.5 },
+  },
+  active: {
+    transition: { duration: SECTION_SCROLL_DURATION / 1000 },
+    y: 0,
+  },
+  upcoming: {
+    opacity: 0.5,
+    transition: { duration: 1 },
+  },
+  inactive: {
+    transition: { duration: 1 },
+  },
+};

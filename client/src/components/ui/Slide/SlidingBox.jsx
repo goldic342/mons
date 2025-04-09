@@ -1,24 +1,32 @@
 import { motion, useInView } from "framer-motion";
-import { BASE_DURATION } from "../uiConfig";
-import { useStaggeredDelay } from "../../../hooks/useStaggeredDelay";
 import { useRef } from "react";
+import { BASE_DURATION } from "../uiConfig";
 
-const SlidingBox = ({ children, duration = BASE_DURATION, className = "" }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const delay = useStaggeredDelay({ inView, duration });
+const SlidingBox = ({
+  children,
+  duration = BASE_DURATION,
+  className,
+  once = false,
+  offset = 50,
+  reverse = false,
+  ...props
+}) => {
+  const reverseOffset = (offset) => (reverse ? -1 : 1 * offset);
 
   return (
-    <div ref={ref}>
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={delay !== null ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration, delay: delay ?? 0 }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      className={className}
+      viewport={{ once }}
+      transition={{ duration, ease: "easeOut" }}
+      variants={{
+        show: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: reverseOffset(-offset) },
+        exit: { opacity: 0, y: reverseOffset(offset) },
+      }}
+      {...props}
+    >
+      {children}
+    </motion.div>
   );
 };
 

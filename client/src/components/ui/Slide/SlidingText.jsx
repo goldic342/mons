@@ -1,7 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useStaggeredDelay } from "../../../hooks/useStaggeredDelay";
+import { motion } from "framer-motion";
 import { BASE_DURATION, LINE_DELAY, WORD_DELAY } from "../uiConfig";
-import { useRef } from "react";
 
 const SlidingText = ({
   text,
@@ -9,22 +7,10 @@ const SlidingText = ({
   wordDelay = WORD_DELAY,
   className = "",
 }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
   const lines = text.split("\n");
 
-  const totalWords = lines.reduce(
-    (acc, line) => acc + line.trim().split(/\s+/).length,
-    0,
-  );
-
-  const totalDuration =
-    (lines.length - 1) * lineDelay + (totalWords - lines.length) * wordDelay;
-
-  const delay = useStaggeredDelay({ inView, duration: totalDuration });
-
   return (
-    <div ref={ref} className={`overflow-hidden text-white ${className}`}>
+    <div className={`overflow-hidden text-white ${className}`}>
       {lines.map((line, lineIndex) => (
         <div key={lineIndex} className="flex flex-wrap">
           {line
@@ -32,17 +18,15 @@ const SlidingText = ({
             .split(/\s+/)
             .map((word, wordIndex) => {
               const currWordDelay =
-                (delay ?? 0) + lineIndex * lineDelay + wordIndex * wordDelay;
+                lineIndex * lineDelay + wordIndex * wordDelay;
 
               return (
                 <motion.span
                   key={wordIndex}
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={
-                    delay !== null
-                      ? { y: 0, opacity: 1 }
-                      : { y: 50, opacity: 0 }
-                  }
+                  variants={{
+                    hidden: { y: 50, opacity: 0 },
+                    show: { y: 0, opacity: 1 },
+                  }}
                   transition={{
                     duration: BASE_DURATION,
                     delay: currWordDelay,
