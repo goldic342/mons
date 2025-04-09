@@ -1,5 +1,5 @@
-import { createContext, useRef } from "react";
-import { motion } from "framer-motion";
+import { createContext, useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { useCtx } from "../hooks/useCtx";
 
 const StaggerContext = createContext(null);
@@ -27,11 +27,22 @@ export const StaggerProvider = ({
     exit: {},
   };
 
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.4 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("show");
+    }
+  }, [inView, children, controls]);
+
   return (
     <StaggerContext.Provider value={{ parentVariants: variants }}>
       <motion.div
+        ref={ref}
         initial="hidden"
-        whileInView="show"
+        animate={controls}
         exit="exit"
         className={className}
         variants={variants}

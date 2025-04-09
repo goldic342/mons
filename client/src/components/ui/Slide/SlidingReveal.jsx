@@ -1,19 +1,26 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 const SlideReveal = ({
   children,
   className = "",
-  duration = 0.8,
+  duration = 0.5,
+  delay = 0,
   ...props
 }) => {
   return (
     <motion.div
-      viewport={{ once: true }}
-      transition={{ duration, ease: "easeOut" }}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: true, amount: 0.4 }}
+      exit={"exit"}
+      transition={{ duration, ease: "easeOut", delay: delay }}
       variants={{
         hidden: { height: 0, opacity: 0 },
-        show: { height: "auto", opacity: 1 },
+        exit: { height: 0, opacity: 0 },
+        show: {
+          opacity: 1,
+          height: "auto",
+        },
       }}
       className={`overflow-hidden ${className}`}
       {...props}

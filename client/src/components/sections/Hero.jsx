@@ -14,7 +14,7 @@ const Hero = () => {
   const navigate = useNavigate();
   const value = useSetHeader();
   const text = "стратегическое\nпревосходство бренда"; // Placeholder
-  console.log("c", calcTextDelay(text));
+
   return (
     <StaggerProvider
       className={`${baseSectionClass} bg-brand gap-y-43.5 ${headerPadding}`}

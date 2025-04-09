@@ -11,12 +11,11 @@ const SlidingBox = ({
   reverse = false,
   ...props
 }) => {
-  const reverseOffset = (offset) => (reverse ? -1 : 1 * offset);
+  const reverseOffset = (o) => (reverse ? -1 : 1) * o;
 
   return (
     <motion.div
       className={className}
-      viewport={{ once }}
       transition={{ duration, ease: "easeOut" }}
       variants={{
         show: { opacity: 1, y: 0 },
